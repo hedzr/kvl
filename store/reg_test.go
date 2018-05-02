@@ -34,20 +34,18 @@ func getConsulStore() store.KVStore {
 }
 
 func getEtcdStore() store.KVStore {
-	store := kvl.New(
-		&etcd.Etcdtool{
-			Peers:            "127.0.0.1:2379",
-			Cert:             "",
-			Key:              "",
-			CA:               "",
-			User:             "",
-			Timeout:          time.Second * 10,
-			CommandTimeout:   time.Second * 5,
-			Routes:           []etcd.Route{},
-			PasswordFilePath: "",
-			Root:             "",
-		}
-	)
+	store := kvl.New(&etcd.Etcdtool{
+		Peers:            "127.0.0.1:2379",
+		Cert:             "",
+		Key:              "",
+		CA:               "",
+		User:             "",
+		Timeout:          time.Second * 10,
+		CommandTimeout:   time.Second * 5,
+		Routes:           []etcd.Route{},
+		PasswordFilePath: "",
+		Root:             "",
+	})
 	return store
 }
 
